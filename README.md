@@ -10,18 +10,19 @@
 
     projeto-final/
   ├── backend/
-  │   └── README.md ← descrição do projeto backend
+  │   └── README.md
   │
   ├── frontend/
   │   ├── public/
   │   ├── src/
+  │   ├───├── assets
+  │   │   │   ├── images/
   │   │   ├── components/
   │   │   ├── pages/
-  │   │   ├── Routes/
-  │   │   ├── Styles/
-  │   │   └── main.jsx
+  │   │   ├── index.css
+  │   │   ├── main.jsx
+  │   │   └── routes.jsx
   │   ├── package.json
-  │   └── README.md ← descrição do projeto frontend
+  │   └── README.md
   │
-  ├── README.md  ← descrição geral do projeto
-  └── .gitignore
+  ├── README.md
