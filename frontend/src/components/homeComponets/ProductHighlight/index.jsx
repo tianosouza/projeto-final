@@ -1,5 +1,4 @@
 import CardProduct from "../../CardProduct";
-
 import tenisProduct from "../../../assets/images/tenis-product.svg";
 
 export default function ProductHighlight() {
@@ -11,18 +10,20 @@ export default function ProductHighlight() {
           ver todos →
         </span>
       </div>
-      {
-        Array.from({ length: 8 }, (_, index) => (
-          <CardProduct
-            key={index}
-            offer={index % 2 === 0 ? "20% OFF" : null}
-            category="Tênis"
-            productImage={tenisProduct}
-            productName="K-Swiss V8 - Masculino"
-            productPrice="R$ 499,99"
-          />
-        ))
-      }
+      <div className="flex flex-wrap gap-4 mt-4 justify-between">
+        {
+          Array.from({ length: 8 }, (_, index) => (
+            <CardProduct
+              key={index}
+              offer={index % 2 === 0 ? "20% OFF" : null}
+              category="Tênis"
+              productImage={tenisProduct}
+              productName={`K-Swiss V${index + 1} - Masculino`}
+              productPrice="R$ 499,99"
+            />
+          ))
+        }
+      </div>
     </div>
   );
 }
