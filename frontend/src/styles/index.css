@@ -11,8 +11,6 @@
   --color-offer-color: #E7FF86;
   --color-background-color: #F9F8FE;
 
-  /* Grayscale */
-
   --color-dark-gray-color: #1F1F1F;
   --color-dark-gray-2-color: #474747;
   --color-dark-gray-3-color: #666666;
@@ -21,9 +19,6 @@
   --color-light-gray-3-color: #F5F5F5;
   --color-white-color: #FFFFFF;
 }
-
-/* para criar uma class de active e incative */
-
 
 img svg:active {
   fill: var(--color-primary-color);
