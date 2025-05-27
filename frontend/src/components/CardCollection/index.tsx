@@ -7,7 +7,7 @@ export default function CardCollection({
   image,
   styleProduct,
 }) {
-  const style = "text-primary-color font-bold text-2xl z-1";
+  const style = "text-primary-color font-bold text-2xl z-1 bg-white-color";
   return (
     <div className="relative bg-info-color w-full max-w-[25rem] h-auto md:h-[15rem] rounded-md flex md:flex-row overflow-hidden">
       <div className="flex flex-col gap-3 pt-6 md:pt-8 pl-4 md:pl-8 pb-4 md:pb-0 z-10">
@@ -17,7 +17,7 @@ export default function CardCollection({
         <span className="text-black font-bold text-2xl w-full md:w-[10rem]">
           {title}
         </span>
-        <ButtonComponent name={button} style={style} />
+        <ButtonComponent name={button} styleButton={style} />
       </div>
       <img
         src={image}

@@ -2,6 +2,7 @@ import ContainerMain from "../../components/ContainerMain";
 import CollectionHighlight from "../../components/homeComponets/CollectionHighlight"
 import MainHome from "../../components/homeComponets/MainHome";
 import ProductHighlight from "../../components/homeComponets/ProductHighlight";
+import SpecialOffer from "../../components/homeComponets/SpecialOffer";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <MainHome />
       <CollectionHighlight />
       <ProductHighlight />
+      <SpecialOffer />
     </ContainerMain>
   );
 }
