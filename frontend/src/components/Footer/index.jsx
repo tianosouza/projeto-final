@@ -34,7 +34,7 @@ export default function Footer() {
 
           <div className="col-span-1 md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <h4 className="text-white-color text-lg sm:text-xl font-medium mb-6">Informação</h4>
+              <h4 className="text-white-color text-lg sm:text-xl font-medium mb-6">Suporte</h4>
               <ul className="space-y-4">
                 <li>
                   <a href="#" className="text-light-gray-color hover:text-white-color transition text-base sm:text-lg">
@@ -58,12 +58,12 @@ export default function Footer() {
                 </li>
                 <li>
                   <a href="#" className="text-light-gray-color hover:text-white-color transition text-base sm:text-lg">
-                    Trabalhe conosco
+                    Meus Pedidos
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-light-gray-color hover:text-white-color transition text-base sm:text-lg">
-                    Meus Pedidos
+                    Trabalhe conosco
                   </a>
                 </li>
               </ul>
@@ -74,27 +74,22 @@ export default function Footer() {
               <ul className="space-y-4">
                 <li>
                   <a href="#" className="text-light-gray-color hover:text-white-color transition text-base sm:text-lg">
-                    Camisetas
+                    Moda
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-light-gray-color hover:text-white-color transition text-base sm:text-lg">
-                    Calças
+                    Acessórios
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-light-gray-color hover:text-white-color transition text-base sm:text-lg">
-                    Bonés
+                    Eletrônicos
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-light-gray-color hover:text-white-color transition text-base sm:text-lg">
-                    Headphones
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-light-gray-color hover:text-white-color transition text-base sm:text-lg">
-                    Tênis
+                    Calçados
                   </a>
                 </li>
               </ul>
@@ -114,7 +109,7 @@ export default function Footer() {
 
         <div className="border-t border-dark-gray-color mt-12 pt-8">
           <p className="text-light-gray-color text-center text-base sm:text-lg">
-            © 2025 Digital College - Cristiano Souza
+            © 2025 Digital College - Cristiano Souza - Wallison Rocha - Cleidivano - Todos os direitos reservados.
           </p>
         </div>
       </div>
