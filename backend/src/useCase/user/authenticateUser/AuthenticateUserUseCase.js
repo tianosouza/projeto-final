@@ -1,3 +1,5 @@
+const bcrypt = require('bcrypt');
+
 class AuthenticateUserUseCase {
   constructor(userRepository) {
     this.userRepository = userRepository;
@@ -10,7 +12,7 @@ class AuthenticateUserUseCase {
       throw new Error('User not found');
     }
 
-    const isPasswordValid = await this.userRepository.comparePassword(password, user.password);
+    const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
       throw new Error('Invalid password');

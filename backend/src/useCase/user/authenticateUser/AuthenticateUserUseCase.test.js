@@ -1,25 +1,27 @@
 const AuthenticateUserUseCase = require('./AuthenticateUserUseCase');
+const bcrypt = require('bcrypt');
+
+jest.mock('bcrypt');
 
 describe('AuthenticateUserUseCase', () => {
   it('deve autenticar usuário com email e senha corretos', async () => {
     const user = { id: 1, email: 'teste@teste.com', password: 'hash' };
     const userRepository = {
       findByEmail: jest.fn().mockResolvedValue(user),
-      comparePassword: jest.fn().mockResolvedValue(true),
     };
+    bcrypt.compare.mockResolvedValue(true);
 
     const useCase = new AuthenticateUserUseCase(userRepository);
     const result = await useCase.execute({ email: 'teste@teste.com', password: 'senha' });
 
     expect(result).toBe(user);
     expect(userRepository.findByEmail).toHaveBeenCalledWith('teste@teste.com');
-    expect(userRepository.comparePassword).toHaveBeenCalledWith('senha', 'hash');
+    expect(bcrypt.compare).toHaveBeenCalledWith('senha', 'hash');
   });
 
   it('deve lançar erro se usuário não existir', async () => {
     const userRepository = {
       findByEmail: jest.fn().mockResolvedValue(null),
-      comparePassword: jest.fn(),
     };
     const useCase = new AuthenticateUserUseCase(userRepository);
 
