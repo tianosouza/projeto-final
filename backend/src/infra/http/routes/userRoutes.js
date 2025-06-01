@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const authMiddleware = require('../midddlewares/authMiddleware');
 const CreateUserUseCase = require('../../../useCase/user/createUser/CreateUserCase');
-const UserRepository = require('../../prisma/PrismaUserRepository'); // Caminho corrigido
+const UserRepository = require('../../prisma/PrismaUserRepository');
 
 const userRepository = new UserRepository();
 const createUserUseCase = new CreateUserUseCase(userRepository);
