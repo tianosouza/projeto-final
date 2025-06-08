@@ -1,10 +1,10 @@
-import ContainerMain from "../../components/ContainerMain";
-import CollectionHighlight from "../../components/homeComponets/CollectionHighlight"
-import MainHome from "../../components/homeComponets/MainHome";
-import ProductHighlight from "../../components/homeComponets/ProductHighlight";
-import SpecialOffer from "../../components/homeComponets/SpecialOffer";
+import { ContainerMain } from "../../components/ContainerMain";
+import { CollectionHighlight } from "../../components/homeComponets/CollectionHighlight"
+import { MainHome } from "../../components/homeComponets/MainHome";
+import { ProductHighlight } from "../../components/homeComponets/ProductHighlight";
+import { SpecialOffer } from "../../components/homeComponets/SpecialOffer";
 
-export default function Home() {
+export function Home() {
   return (
     <ContainerMain>
       <MainHome />

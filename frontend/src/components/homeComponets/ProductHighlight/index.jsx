@@ -1,7 +1,7 @@
 import CardProduct from "../../CardProduct";
 import tenisProduct from "../../../assets/images/tenis-product.svg";
 
-export default function ProductHighlight() {
+export function ProductHighlight() {
   return (
     <div className="bg-color-blue dark:bg-color-secondary-dark text-gray-900 container dark:text-gray-100 flex flex-col mx-auto px-4 py-4 w-full">
       <div className="flex justify-between">

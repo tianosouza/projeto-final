@@ -1,4 +1,4 @@
-import ContainerMain from "../../components/ContainerMain";
+import { ContainerMain } from "../../components/ContainerMain";
 import CardProduct from "../../components/CardProduct";
 import tenisJordan from '../../assets/images/tenis-jordan.svg';
 import camisetaTShirt from '../../assets/images/t-shirt.svg';
@@ -7,7 +7,7 @@ import tenisAdidas from '../../assets/images/adidas.svg';
 import nikeAir from '../../assets/images/tenis-swiper.svg';
 
 
-export default function Products() {
+export function Products() {
   const products = [
     {
       id: 1,

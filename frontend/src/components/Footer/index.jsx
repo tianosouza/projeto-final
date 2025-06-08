@@ -3,7 +3,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import logo from '../../assets/images/logo-footer.svg';
 
-export default function Footer() {
+export function Footer() {
   return (
     <footer className="bg-gray-900 text-white-color py-16">
       <div className="container mx-auto px-6">

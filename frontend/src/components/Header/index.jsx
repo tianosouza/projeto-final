@@ -3,9 +3,10 @@ import { Link, useLocation } from 'react-router-dom';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import logo from '../../assets/images/logo-header.svg';
 
-export default function Header() {
+export function Header() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -24,18 +25,38 @@ export default function Header() {
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
 
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
   const isActive = (path) => location.pathname === path;
 
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <div className="w-full p-4 bg-white shadow-sm">
+    <div className="w-full bg-white shadow-sm relative">
       {isMobile ? (
         <>
-          <div className="flex items-center justify-between py-4 px-4">
+          <div className="flex items-center justify-between p-4">
             <button
-              className="text-gray-800"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-gray-800 z-50 relative"
+              onClick={handleMenuToggle}
             >
-              <MenuOutlinedIcon />
+              {isMenuOpen ? <CloseOutlinedIcon /> : <MenuOutlinedIcon />}
             </button>
 
             <div className="flex justify-center">
@@ -43,7 +64,7 @@ export default function Header() {
                 <img
                   src={logo}
                   alt="Logo"
-                  className="h-[12] w-[95] mr-2"
+                  className="w-[8.625rem]"
                 />
               </div>
             </div>
@@ -62,6 +83,95 @@ export default function Header() {
                     2
                   </span>
                 </button>
+              </div>
+            </div>
+          </div>
+
+          {isMenuOpen && (
+            <div 
+              className="fixed inset-0 bg-black bg-opacity-50 z-40"
+              onClick={() => setIsMenuOpen(false)}
+            />
+          )}
+
+          <div className={`fixed top-0 left-0 h-full w-80 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${
+            isMenuOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}>
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-8">
+                <div className="text-primary-color font-bold text-xl">
+                  <img
+                    src={logo}
+                    alt="Digital Store"
+                    className="w-32"
+                  />
+                </div>
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-gray-500 hover:text-gray-700"
+                >
+                  <CloseOutlinedIcon />
+                </button>
+              </div>
+
+              <div className="mb-8">
+                <h3 className="text-gray-400 text-sm font-medium mb-4 uppercase tracking-wide">
+                  Páginas
+                </h3>
+                <nav className="space-y-3">
+                  <Link
+                    to="/"
+                    className={`block py-2 text-base font-medium transition ${
+                      isActive('/') 
+                        ? 'text-primary-color border-l-2 border-primary-color pl-4' 
+                        : 'text-gray-700 hover:text-primary-color'
+                    }`}
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    to="/produtos"
+                    className={`block py-2 text-base font-medium transition ${
+                      isActive('/produtos') 
+                        ? 'text-primary-color border-l-2 border-primary-color pl-4' 
+                        : 'text-gray-700 hover:text-primary-color'
+                    }`}
+                  >
+                    Produtos
+                  </Link>
+                  <Link
+                    to="/categorias"
+                    className={`block py-2 text-base font-medium transition ${
+                      isActive('/categorias') 
+                        ? 'text-primary-color border-l-2 border-primary-color pl-4' 
+                        : 'text-gray-700 hover:text-primary-color'
+                    }`}
+                  >
+                    Categorias
+                  </Link>
+                  <Link
+                    to="/meus-pedidos"
+                    className={`block py-2 text-base font-medium transition ${
+                      isActive('/meus-pedidos') 
+                        ? 'text-primary-color border-l-2 border-primary-color pl-4' 
+                        : 'text-gray-700 hover:text-primary-color'
+                    }`}
+                  >
+                    Meus Pedidos
+                  </Link>
+                </nav>
+              </div>
+
+              <div className="space-y-3">
+                <button className="w-full bg-primary-color hover:bg-secondary-color text-white py-3 px-4 rounded-lg text-base font-medium transition">
+                  Entrar
+                </button>
+                <a 
+                  href="#" 
+                  className="block text-center text-gray-700 hover:text-primary-color transition text-base underline"
+                >
+                  Cadastre-se
+                </a>
               </div>
             </div>
           </div>

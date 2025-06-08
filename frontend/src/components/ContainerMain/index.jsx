@@ -1,7 +1,7 @@
-import Footer from '../Footer';
-import Header from '../Header';
+import { Footer } from '../Footer';
+import { Header } from '../Header';
 
-export default function ContainerMain({ children }) {
+export function ContainerMain({ children }) {
   return (
     <div className="min-h-screen w-full bg-color-secondary-light text-gray-900 dark:text-gray-100 flex flex-col bg-background-color">
       <Header />

@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home';
+import { Home } from './pages/Home';
 import Categories from './pages/Categories';
-import MyOrders from './pages/MyOrders';
-import Products from './pages/Products';
+import { MyOrders } from './pages/MyOrders';
+import { Products } from './pages/Products';
 
 export default function MainRoutes() {
   return (

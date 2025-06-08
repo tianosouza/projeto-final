@@ -23,3 +23,16 @@
 img svg:active {
   fill: var(--color-primary-color);
 }
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -webkit-overflow-scrolling: touch;
+}

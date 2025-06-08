@@ -1,4 +1,4 @@
-import ContainerMain from '../../components/ContainerMain';
+import { ContainerMain } from '../../components/ContainerMain';
 
 export default function Categories() {
   return (

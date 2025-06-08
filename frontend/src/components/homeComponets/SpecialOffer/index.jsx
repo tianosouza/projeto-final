@@ -1,38 +1,47 @@
 import tenis from "../../../assets/images/tenis-jordan.svg";
 import ButtonComponent from "../../ButtonComponent";
 
-export default function SpecialOffer() {
+export function SpecialOffer() {
   const style = "bg-primary-color text-white font-semibold";
 
   return (
-    <div className="bg-color-secondary-light container mx-auto px-4 py-8 flex flex-col lg:flex-row  justify-center gap-6 text-gray-900">
-      <div className="w-full lg:w-1/2 flex items-center justify-center relative">
-        <div
-          className="rounded-full w-72 h-72 sm:w-80 sm:h-80 md:w-[25rem] md:h-[25rem] lg:w-[29.3rem] lg:h-[29.3rem]"
-          style={{
-            backgroundImage: "linear-gradient(180deg, rgba(66, 0, 255, .3) 0%, rgba(255, 255, 255, 0) 50%)",
-          }}
-        ></div>
-        <img
-          src={tenis}
-          alt="Special Offer"
-          className="object-cover absolute top-5 -left-5 md:top-5 md:left-30 w-[28.3rem]"
-        />
-      </div>
+    <div className="bg-color-secondary-light">
+      <div className="container mx-auto px-4 py-8">
+        <div className="max-w-sm mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+          <div className="relative flex items-center justify-center p-8 bg-gray-50">
+            <div
+              className="rounded-full w-64 h-64"
+              style={{
+                backgroundImage:
+                  "linear-gradient(180deg, rgba(66, 0, 255, .3) 0%, rgba(255, 255, 255, 0) 50%)",
+              }}
+            >
+              <img
+                src={tenis}
+                alt="Air Jordan Special Offer"
+                className="absolute w-72 object-contain transform -translate-x-4 -translate-y-2"
+              />
+            </div>
+          </div>
+          <div className="p-6">
+            <span className="text-primary-color font-semibold text-sm uppercase tracking-wide">
+              Oferta especial
+            </span>
 
-      <div className="w-full lg:w-1/2  lg:mt-0 text-center lg:text-left">
-        <span className="text-primary-color font-semibold text-sm uppercase tracking-wide">
-          Oferta especial
-        </span>
-        <h2 className="text-4xl font-bold mt-2 w-90">
-          Air Jordan edição de colecionador
-        </h2>
-        <p className="mt-4 text-gray-700 text-base sm:text-lg max-w-md mx-auto lg:mx-0">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-          Quidem saepe consectetur nemo vitae perspiciatis fugiat recusandae sunt commodi quia eligendi. 
-          Ab eligendi ad eum expedita est qui quod voluptates minus!
-        </p>
-        <ButtonComponent name={"Ver oferta"} styleButton={style} />
+            <h2 className="text-2xl font-bold mt-2 mb-4 text-gray-900 leading-tight">
+              Air Jordan edição de colecionador
+            </h2>
+
+            <p className="text-gray-700 text-sm leading-relaxed mb-6">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip
+            </p>
+
+            <ButtonComponent name={"Ver Oferta"} styleButton={style} />
+          </div>
+        </div>
       </div>
     </div>
   );

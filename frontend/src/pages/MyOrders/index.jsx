@@ -1,6 +1,6 @@
-import ContainerMain from "../../components/ContainerMain";
+import { ContainerMain } from "../../components/ContainerMain";
 
-export default function Home() {
+export function MyOrders() {
   return (
     <ContainerMain>
       <h1>Orders</h1>
