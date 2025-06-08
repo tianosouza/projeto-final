@@ -4,7 +4,7 @@ import Categories from './pages/Categories';
 import { MyOrders } from './pages/MyOrders';
 import { Products } from './pages/Products';
 
-export default function MainRoutes() {
+export function MainRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
