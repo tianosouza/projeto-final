@@ -58,10 +58,13 @@ projeto-final/
 │   │   ├── assets/
 │   │   │   └── images/
 │   │   ├── components/
+│   │   ├── context/
+│   │   ├── data/
+│   │   ├── hooks/
 │   │   ├── pages/
-│   │   ├── index.css
-│   │   ├── main.jsx
-│   │   └── routes.jsx
+│   │   ├── styles/
+│   │   └── App.jsx
+│   │   └── main.jsx
 │   ├── package.json
 │   └── README.md
 │
