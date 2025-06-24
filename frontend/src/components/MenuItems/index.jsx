@@ -1,0 +1,32 @@
+import { Link } from 'react-router-dom'; 
+
+export function MenuItems ({ section, currentPath, menuData, onHide }) {
+  
+  if (!Array.isArray(section.items)) return null;
+
+  return (
+    <>
+      {section.items
+        .map(i => menuData[i])
+        .filter(Boolean)
+        .map(({name, link}, i) => {
+          const isActive = currentPath === link; 
+          const linkClass = `${section.class} ${isActive ? section.active : section.hover}`.trim();
+
+          return (
+            <li key={i}>
+              <Link 
+                to={link}
+                className={`inline-block relative transition-duration-400 ${linkClass}`}
+                title={name}
+                aria-current={isActive ? "page" : undefined}
+                onClick={onHide}
+              >
+                {name}
+              </Link>
+            </li>
+          );
+        })}
+    </>
+  );
+};

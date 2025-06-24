@@ -1,118 +1,99 @@
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import logo from '../../assets/images/logo-footer.svg';
+import { useLocation, Link } from "react-router-dom";
+import { Divider } from "primereact/divider";
+import { Logo } from "../Logo";
+import { MenuItems } from "../MenuItems";
+import { Info } from "../../data/Info";
 
 export function Footer() {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  const {
+    name,
+    description,
+    social: { tblank, redes },
+    menusections: { menufooter },
+    menu,
+    address,
+    phone,
+  } = Info;
+
   return (
-    <footer className="bg-gray-900 text-white-color py-16">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          <div className="col-span-1">
-            <div className="flex items-center mb-6">
-              <img
-                src={logo}
-                alt="Logo"
-                className="h-[42] w-[104] mr-2"
-              />
-            </div>
-            <p className="text-light-gray-color mb-8 text-base sm:text-lg md:text-xl">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-white-color hover:text-light-gray-2-color transition" aria-label="Facebook">
-                <FacebookRoundedIcon />
-              </a>
-              <a href="#" className="text-white-color hover:text-light-gray-2-color transition" aria-label="Instagram">
-                <InstagramIcon />
-              </a>
-              <a href="#" className="text-white-color hover:text-light-gray-2-color transition" aria-label="Twitter">
-                <TwitterIcon />
-              </a>
+    <footer className="p-3 pt-6 pb-4 xl:p-7 xl:pb-4 bg-gray-900 text-white">
+      <div className="max-w-75rem mx-auto">
+        <div className="flex flex-wrap">
+          
+          <div className="w-full xl:w-4">
+            <Logo isWhite={true} />
+            <p className="w-full xl:w-20rem mb-5">{description}</p>
+
+            <div className="flex justify-content-start gap-4" role="list">
+              {redes.map(({ link, name, icon }, i) => (
+                <Link
+                  key={i}
+                  to={link}
+                  aria-label={name}
+                  role="listitem"
+                  className="text-white transition-colors duration-300 hover:text-pink-600"
+                  title={name}
+                  target={tblank ? "_blank" : undefined}
+                  rel={tblank ? "noopener noreferrer" : undefined}
+                >
+                  <i className={`${icon} text-xl`} aria-hidden="true"></i>
+                </Link>
+              ))}
             </div>
           </div>
 
-          <div className="col-span-1 md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <h4 className="text-white-color text-lg sm:text-xl font-medium mb-6">Suporte</h4>
-              <ul className="space-y-4">
-                <li>
-                  <a href="#" className="text-light-gray-color hover:text-white-color transition text-base sm:text-lg">
-                    Sobre Drip Store
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-light-gray-color hover:text-white-color transition text-base sm:text-lg">
-                    Segurança
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-light-gray-color hover:text-white-color transition text-base sm:text-lg">
-                    Wishlist
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-light-gray-color hover:text-white-color transition text-base sm:text-lg">
-                    Blog
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-light-gray-color hover:text-white-color transition text-base sm:text-lg">
-                    Meus Pedidos
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-light-gray-color hover:text-white-color transition text-base sm:text-lg">
-                    Trabalhe conosco
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-white-color text-lg sm:text-xl font-medium mb-6">Categorias</h4>
-              <ul className="space-y-4">
-                <li>
-                  <a href="#" className="text-light-gray-color hover:text-white-color transition text-base sm:text-lg">
-                    Moda
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-light-gray-color hover:text-white-color transition text-base sm:text-lg">
-                    Acessórios
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-light-gray-color hover:text-white-color transition text-base sm:text-lg">
-                    Eletrônicos
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-light-gray-color hover:text-white-color transition text-base sm:text-lg">
-                    Calçados
-                  </a>
-                </li>
-              </ul>
-            </div>
+          
+          <div className="flex w-full xl:w-6 my-5 xl:my-0">
+            {menufooter.map((section, i) => (
+              <div key={i} className="flex-none w-6">
+                <h3 className="mt-0">{section.title}</h3>
+                <ul>
+                  <MenuItems
+                    section={section}
+                    currentPath={currentPath}
+                    menuData={menu}
+                  />
+                </ul>
+              </div>
+            ))}
           </div>
 
-          <div className="col-span-1">
-            <h4 className="text-white-color text-lg sm:text-xl font-medium mb-6">Contato</h4>
-            <address className="not-italic text-light-gray-color space-y-4 text-base sm:text-lg">
-              <p>
-                Av. Santos Dumont, 1510 - 1 andar - Aldeota, Fortaleza - CE, 60150-161
-              </p>
-              <p>(85) 3051-3411</p>
+          
+          <div className="flex-none w-full xl:w-2">
+            <h3 className="mt-0">Contato</h3>
+            <address className="mb-3" style={{ fontStyle: "normal" }}>
+              <a
+                href={`//google.com/maps/dir//${encodeURIComponent(address)}`}
+                className="transition-colors duration-400 hover:text-pink-600"
+                title={address}
+                target="_blank"
+              >
+                {address}
+              </a>
             </address>
+            <a
+              href={`tel:${phone.replace(/\D/g, "")}`}
+              className="transition-colors duration-400 hover:text-pink-600"
+              title={phone}
+            >
+              {phone}
+            </a>
           </div>
         </div>
 
-        <div className="border-t border-dark-gray-color mt-12 pt-8">
-          <p className="text-light-gray-color text-center text-base sm:text-lg">
-            © 2025 Digital College - Cristiano Souza - Wallison Rocha - Cleidivano - Todos os direitos reservados.
-          </p>
+        
+        <Divider className="bg-white opacity-20 mt-5 mb-4" />
+
+        
+        <div className="max-w-75rem mx-auto text-center text-lg">
+          <span>
+            &copy; {new Date().getFullYear()} {name}
+          </span>
         </div>
       </div>
     </footer>
   );
-}
+};

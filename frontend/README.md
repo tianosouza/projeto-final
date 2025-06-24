@@ -1,6 +1,3 @@
-# Projeto fina de front-end
-
-```plaintext
 projeto-final/
 ├── frontend/
 │   ├── public/
@@ -8,10 +5,13 @@ projeto-final/
 │   │   ├── assets/
 │   │   │   └── images/
 │   │   ├── components/
+│   │   ├── context/
+│   │   ├── data/
+│   │   ├── hooks/
 │   │   ├── pages/
-│   │   ├── index.css
+│   │   ├── styles/
+│   │   ├── App.jsx
 │   │   ├── main.jsx
-│   │   └── routes.jsx
 │   ├── package.json
 │   └── README.md
 │
