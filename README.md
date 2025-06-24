@@ -4,7 +4,7 @@
 
 - Cristiano Pinheiro de Souza  
 - Walison Rocha  
-- Cleidivano  
+- Cleidivano Lopes Da Silva 
 
 ## Estrutura do Projeto
 
