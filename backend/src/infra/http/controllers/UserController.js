@@ -25,7 +25,6 @@ class UserController {
     try {
       const user = await this.authenticateUserUseCase.execute({ email, password });
 
-      // Gere o token JWT
       const token = jwt.sign(
         { id: user.id, email: user.email },
         process.env.JWT_SECRET,
