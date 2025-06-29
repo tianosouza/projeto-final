@@ -1,23 +1,10 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export function SpecialOfferCard ({ data }) {
   const { image, title, subtitle, description, link, label } = data;
-  const [hovered, setHovered] = useState(false);
   
   return (
-    <div
-      className="grid"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      style={{
-        transform: hovered
-          ? "translateY(-0.5rem) scale(1.05)"
-          : "translateY(0) scale(1)",
-        transition: "transform 0.3s ease",
-      }}
-    >
-
+    <div className="grid">
       <div className="col-12 md:col-6 mt-3 mb-7 xl:mb-2">
         <div className="flex align-items-center justify-content-center relative">
           <img

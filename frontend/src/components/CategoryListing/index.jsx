@@ -20,18 +20,7 @@ export function CategoryListing ({ cols = [12], data }) {
       {data.map((category, index) => (
         <div
           key={index}
-          className={colClasses}
-          onMouseEnter={() => setHoverIndex(index)}
-          onMouseLeave={() => setHoverIndex(null)}
-          style={{
-            transform:
-              hoverIndex === index
-                ? "translateY(-0.5rem) scale(1.05)"
-                : "translateY(0) scale(1)",
-            transition: "transform 0.3s ease",
-          }}
-        >
-      
+          className={colClasses}>      
           <CategoryCard
             {...category}
             index={index}

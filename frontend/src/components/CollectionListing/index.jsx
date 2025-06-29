@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { CollectionCard } from "../CollectionCard";
 
 export function CollectionListing ({ cols = [12], data }) { 
 
-  const [hoveredIndex, setHoveredIndex] = useState(null);
   const breakpoints = ["", "md", "lg", "xl", "xxl"];
 
   const colClasses = cols
@@ -16,20 +14,7 @@ export function CollectionListing ({ cols = [12], data }) {
   return (
     <div className="grid">
       {data.map((collection, index) => (
-        <div
-          key={index}
-          className={`${colClasses}`}
-          onMouseEnter={() => setHoveredIndex(index)}
-          onMouseLeave={() => setHoveredIndex(null)} 
-          style={{
-            transform:
-              hoveredIndex === index
-                ? "translateY(-0.5rem) scale(1.05)"
-                : "translateY(0) scale(1)",
-            transition: "transform 0.3s ease",
-          }}
-        >
-          
+        <div key={index} className={`${colClasses}`}>        
           <CollectionCard {...collection} />
         </div>
       ))}
