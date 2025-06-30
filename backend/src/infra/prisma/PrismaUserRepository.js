@@ -10,6 +10,10 @@ class PrismaUserRepository {
       data: { name, email, password }
     });
   }
+
+  async delete(id) {
+    return prisma.user.delete({ where: { id } });
+  }
 }
 
 module.exports = PrismaUserRepository;

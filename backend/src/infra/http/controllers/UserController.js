@@ -1,9 +1,14 @@
 const jwt = require('jsonwebtoken');
 
 class UserController {
-  constructor({ createUserUseCase, authenticateUserUseCase }) {
+  constructor({ 
+    createUserUseCase, 
+    authenticateUserUseCase,
+    deleteUserUseCase
+  }) {
     this.createUserUseCase = createUserUseCase;
     this.authenticateUserUseCase = authenticateUserUseCase;
+    this.deleteUserUseCase = deleteUserUseCase;
   }
 
   async list(req, res) {
@@ -15,6 +20,16 @@ class UserController {
     try {
       const user = await this.createUserUseCase.execute({ name, email, password });
       res.status(201).json(user);
+    } catch (err) {
+      res.status(400).json({ error: err.message });
+    }
+  }
+
+  async delete(req, res) {
+    const { id } = req.params;
+    try {
+      await this.createUserUseCase.delete(id);
+      res.status(204).send();
     } catch (err) {
       res.status(400).json({ error: err.message });
     }

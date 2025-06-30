@@ -13,6 +13,8 @@ projeto-final/
 ├── backend/
 |       ├── prisma/
 │       │   └── schema.prisma
+│       ├── scripts/
+│       │   └── createDefaultUser.js
 │       ├── src/
 │       ├── config/
 │       │   └── env.js
