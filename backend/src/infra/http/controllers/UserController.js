@@ -5,12 +5,14 @@ class UserController {
     createUserUseCase,
     authenticateUserUseCase,
     deleteUserUseCase,
-    listUsersUseCase
+    listUsersUseCase,
+    updateUserUseCase
   }) {
     this.createUserUseCase = createUserUseCase;
     this.authenticateUserUseCase = authenticateUserUseCase;
     this.deleteUserUseCase = deleteUserUseCase;
     this.listUsersUseCase = listUsersUseCase;
+    this.updateUserUseCase = updateUserUseCase;
   }
 
   async list(req, res) {
@@ -63,6 +65,20 @@ class UserController {
       });
     } catch (err) {
       res.status(401).json({ error: err.message });
+    }
+  }
+
+  async update(req, res) {
+    const { id } = req.params;
+    const data = req.body;
+    try {
+      const user = await this.updateUserUseCase.execute(id, data);
+      res.status(200).json({
+        message: 'Usuário atualizado com sucesso!',
+        user
+      });
+    } catch (err) {
+      res.status(400).json({ error: err.message });
     }
   }
 }
