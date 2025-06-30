@@ -288,9 +288,9 @@ const userController = new UserController({
  *                   error: "Usuário não encontrado"
  */
 
-router.get('/', authMiddleware, userController.list.bind(userController));
-router.post('/', userController.create.bind(userController));
 router.post('/login', userController.login.bind(userController));
+router.post('/', userController.create.bind(userController));
+router.get('/', authMiddleware, userController.list.bind(userController));
 router.delete('/:id', authMiddleware, userController.delete.bind(userController));
 router.put('/:id', authMiddleware, userController.update.bind(userController));
 
