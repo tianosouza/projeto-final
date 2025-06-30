@@ -39,6 +39,17 @@ const ProductController = require('../controllers/ProductController');
  *                     type: string
  *                   price:
  *                     type: number
+ *             examples:
+ *               exemplo:
+ *                 value:
+ *                   - id: "1"
+ *                     name: "Produto 1"
+ *                     description: "Descrição do produto 1"
+ *                     price: 99.99
+ *                   - id: "2"
+ *                     name: "Produto 2"
+ *                     description: "Descrição do produto 2"
+ *                     price: 49.90
  *   post:
  *     summary: Cria um novo produto
  *     tags: [Products]
@@ -81,6 +92,28 @@ const ProductController = require('../controllers/ProductController');
  *                       type: string
  *                     price:
  *                       type: number
+ *             examples:
+ *               exemplo:
+ *                 value:
+ *                   message: Produto criado com sucesso!
+ *                   product:
+ *                     id: "1"
+ *                     name: "Produto 1"
+ *                     description: "Descrição do produto 1"
+ *                     price: 99.99
+ *       400:
+ *         description: Erro de validação
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *             examples:
+ *               erro:
+ *                 value:
+ *                   error: "Nome e preço são obrigatórios"
  */
 
 /**
@@ -122,6 +155,50 @@ const ProductController = require('../controllers/ProductController');
  *                   type: string
  *                 product:
  *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: string
+ *                     name:
+ *                       type: string
+ *                     description:
+ *                       type: string
+ *                     price:
+ *                       type: number
+ *             examples:
+ *               exemplo:
+ *                 value:
+ *                   message: Produto atualizado com sucesso!
+ *                   product:
+ *                     id: "1"
+ *                     name: "Produto Atualizado"
+ *                     description: "Nova descrição"
+ *                     price: 120.00
+ *       400:
+ *         description: Erro de validação
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *             examples:
+ *               erro:
+ *                 value:
+ *                   error: "Dados inválidos"
+ *       404:
+ *         description: Produto não encontrado
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *             examples:
+ *               erro:
+ *                 value:
+ *                   error: "Produto não encontrado"
  *   delete:
  *     summary: Deleta um produto
  *     tags: [Products]
@@ -136,6 +213,19 @@ const ProductController = require('../controllers/ProductController');
  *     responses:
  *       204:
  *         description: Produto deletado com sucesso
+ *       404:
+ *         description: Produto não encontrado
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *             examples:
+ *               erro:
+ *                 value:
+ *                   error: "Produto não encontrado"
  */
 
 const productRepository = new PrismaProductRepository();

@@ -2,14 +2,12 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-  // Reset de estilos básicos
   *, *::before, *::after {
     outline: none;
     list-style: none;
     box-sizing: border-box;
   }
 
-  // Estilo base do body
   body {
     background-color: var(--gray-50);
     margin: 0;
@@ -19,26 +17,22 @@ export const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
   }
 
-  // Remove sublinhado de links
   a {
     text-decoration: none;
     color: inherit;
   }
 
-  // Remove margin/padding de listas
   ul, ol {
     padding: 0;
     margin: 0;
     list-style: none;
   }
 
-  // Garante que imagens ocupem largura total
   img {
     width: 100%;
     height: auto;
   }
 
-  // Algumas classes utilitárias personalizadas
   .max-w-36rem { max-width: 36rem; }
   .max-w-75rem { max-width: 75rem; }
   .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
@@ -50,7 +44,6 @@ export const GlobalStyle = createGlobalStyle`
   .no-effect:focus { outline: none !important; }
   .p-sidebar-mask { padding-top: 4.6rem!important; z-index: 3 !important; }
 
-  // Animações para entrada/saída de componentes
   @keyframes fadeSlideIn {
     from { opacity: 0; transform: translateX(30px); }
     to { opacity: 1; transform: translateX(0); }
@@ -68,7 +61,6 @@ export const GlobalStyle = createGlobalStyle`
     z-index: 1;
   }
 
-  // Scroll horizontal sem barra visível
   .scroll-container {
     overflow-x: auto;
     scrollbar-width: none;
@@ -83,7 +75,6 @@ export const GlobalStyle = createGlobalStyle`
     border-radius: .25rem;
   }
 
-  // Estilo dos checkboxes e radio buttons (PrimeReact)
   .p-checkbox .p-checkbox-box,
   .p-radiobutton .p-radiobutton-box {
     border: .12rem solid var(--gray-600);
@@ -111,14 +102,12 @@ export const GlobalStyle = createGlobalStyle`
     color: var(--surface-a);
   }
 
-  // Deixa borda rosa quando o label está com hover
   label:hover .p-checkbox .p-checkbox-box,
   label:hover .p-radiobutton .p-radiobutton-box {
     border-width: .2rem;
     border-color: var(--pink-600);
   }
 
-  // Ajustes visuais em dropdowns e preview de imagens
   .p-dropdown {
     & .p-dropdown-label { padding: .6rem 0; }
     & .p-dropdown-trigger { width: 2rem; }

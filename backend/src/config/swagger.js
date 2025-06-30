@@ -9,9 +9,8 @@ const options = {
       description: 'Documentação da API de Usuários e Produtos',
     },
     servers: [
-      {
-        url: 'http://localhost:3000',
-      },
+      { url: 'http://localhost:3000' },
+      { url: 'https://backend-final-project.fly.dev' }
     ],
     components: {
       securitySchemes: {

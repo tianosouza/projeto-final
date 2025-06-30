@@ -41,6 +41,28 @@ const userController = new UserController({
  *     responses:
  *       200:
  *         description: Lista de usuários
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: string
+ *                   name:
+ *                     type: string
+ *                   email:
+ *                     type: string
+ *             examples:
+ *               exemplo:
+ *                 value:
+ *                   - id: "1"
+ *                     name: "João"
+ *                     email: "joao@email.com"
+ *                   - id: "2"
+ *                     name: "Maria"
+ *                     email: "maria@email.com"
  *   post:
  *     summary: Cria um novo usuário
  *     tags: [Users]
@@ -64,6 +86,43 @@ const userController = new UserController({
  *     responses:
  *       201:
  *         description: Usuário criado com sucesso
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 user:
+ *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: string
+ *                     name:
+ *                       type: string
+ *                     email:
+ *                       type: string
+ *             examples:
+ *               exemplo:
+ *                 value:
+ *                   message: Usuário criado com sucesso!
+ *                   user:
+ *                     id: "1"
+ *                     name: "João"
+ *                     email: "joao@email.com"
+ *       400:
+ *         description: Erro de validação
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *             examples:
+ *               erro:
+ *                 value:
+ *                   error: "Email já cadastrado"
  */
 
 /**
@@ -89,6 +148,30 @@ const userController = new UserController({
  *     responses:
  *       200:
  *         description: Login realizado com sucesso
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 token:
+ *                   type: string
+ *             examples:
+ *               exemplo:
+ *                 value:
+ *                   token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+ *       401:
+ *         description: Credenciais inválidas
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *             examples:
+ *               erro:
+ *                 value:
+ *                   error: "Credenciais inválidas"
  */
 
 /**
@@ -108,6 +191,19 @@ const userController = new UserController({
  *     responses:
  *       204:
  *         description: Usuário deletado com sucesso
+ *       404:
+ *         description: Usuário não encontrado
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *             examples:
+ *               erro:
+ *                 value:
+ *                   error: "Usuário não encontrado"
  */
 
 /**
@@ -149,6 +245,47 @@ const userController = new UserController({
  *                   type: string
  *                 user:
  *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: string
+ *                     name:
+ *                       type: string
+ *                     email:
+ *                       type: string
+ *             examples:
+ *               exemplo:
+ *                 value:
+ *                   message: Usuário atualizado com sucesso!
+ *                   user:
+ *                     id: "1"
+ *                     name: "João Atualizado"
+ *                     email: "joao@email.com"
+ *       400:
+ *         description: Erro de validação
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *             examples:
+ *               erro:
+ *                 value:
+ *                   error: "Dados inválidos"
+ *       404:
+ *         description: Usuário não encontrado
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *             examples:
+ *               erro:
+ *                 value:
+ *                   error: "Usuário não encontrado"
  */
 
 router.get('/', authMiddleware, userController.list.bind(userController));

@@ -39,7 +39,6 @@ export const DataHome = {
         image: "/src/assets/images/tenis-air-jordan.png",
         label: "Ver Promoção",
         link: "/produtos/promocao",
-        //width: 20,
         rotate: 335,
       },
     ],

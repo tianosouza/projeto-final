@@ -1,5 +1,5 @@
-const PrismaUserRepository = require('../src/infra/prisma/PrismaUserRepository');
-const CreateUserUseCase = require('../src/useCase/user/createUser/CreateUserCase');
+const PrismaUserRepository = require('../infra/prisma/PrismaUserRepository');
+const CreateUserUseCase = require('../useCase/user/createUser/CreateUserCase');
 
 async function main() {
   const userRepository = new PrismaUserRepository();
