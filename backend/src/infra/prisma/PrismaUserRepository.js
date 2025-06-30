@@ -14,6 +14,14 @@ class PrismaUserRepository {
   async delete(id) {
     return prisma.user.delete({ where: { id } });
   }
+
+  async findAll() {
+    return prisma.user.findMany();
+  }
+  
+  async findById(id) {
+    return prisma.user.findUnique({ where: { id } });
+  }
 }
 
 module.exports = PrismaUserRepository;

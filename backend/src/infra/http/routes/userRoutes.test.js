@@ -31,8 +31,8 @@ describe('Rotas de usuário', () => {
       .send({ name: 'Teste', email: 'teste@teste.com', password: '123456' });
 
     expect(res.statusCode).toBe(201);
-    expect(res.body).toHaveProperty('id');
-    expect(res.body).toHaveProperty('email', 'teste@teste.com');
+    expect(res.body.user).toHaveProperty('id');
+    expect(res.body.user).toHaveProperty('email', 'teste@teste.com');
     expect(mockExecute).toHaveBeenCalledWith({
       name: 'Teste',
       email: 'teste@teste.com',
@@ -43,6 +43,6 @@ describe('Rotas de usuário', () => {
   it('GET /users deve retornar lista de usuários (mock)', async () => {
     const res = await request(app).get('/users');
     expect(res.statusCode).toBe(200);
-    expect(res.text).toBe('List of users');
+    expect(Array.isArray(res.body)).toBe(true);
   });
 });

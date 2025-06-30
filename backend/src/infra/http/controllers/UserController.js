@@ -1,25 +1,35 @@
 const jwt = require('jsonwebtoken');
 
 class UserController {
-  constructor({ 
-    createUserUseCase, 
+  constructor({
+    createUserUseCase,
     authenticateUserUseCase,
-    deleteUserUseCase
+    deleteUserUseCase,
+    listUsersUseCase
   }) {
     this.createUserUseCase = createUserUseCase;
     this.authenticateUserUseCase = authenticateUserUseCase;
     this.deleteUserUseCase = deleteUserUseCase;
+    this.listUsersUseCase = listUsersUseCase;
   }
 
   async list(req, res) {
-    res.send('List of users');
+    try {
+      const users = await this.listUsersUseCase.execute();
+      res.status(200).json(users);
+    } catch (err) {
+      res.status(400).json({ error: err.message });
+    }
   }
 
   async create(req, res) {
     const { name, email, password } = req.body;
     try {
       const user = await this.createUserUseCase.execute({ name, email, password });
-      res.status(201).json(user);
+      res.status(201).json({
+        message: 'Usuário criado com sucesso!',
+        user
+      });
     } catch (err) {
       res.status(400).json({ error: err.message });
     }
@@ -28,8 +38,8 @@ class UserController {
   async delete(req, res) {
     const { id } = req.params;
     try {
-      await this.createUserUseCase.delete(id);
-      res.status(204).send();
+      await this.deleteUserUseCase.execute(id);
+      res.status(204).json({ message: 'Usuário deletado com sucesso!' });
     } catch (err) {
       res.status(400).json({ error: err.message });
     }
@@ -46,7 +56,11 @@ class UserController {
         { expiresIn: '1d' }
       );
 
-      res.status(200).json({ user, token });
+      res.status(200).json({
+        message: 'Login realizado com sucesso!',
+        user,
+        token
+      });
     } catch (err) {
       res.status(401).json({ error: err.message });
     }

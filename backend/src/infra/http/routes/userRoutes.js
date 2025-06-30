@@ -4,6 +4,7 @@ const authMiddleware = require('../midddlewares/authMiddleware');
 const CreateUserUseCase = require('../../../useCase/user/createUser/CreateUserCase');
 const AuthenticateUserUseCase = require('../../../useCase/user/authenticateUser/AuthenticateUserUseCase');
 const DeleteUserUseCase = require('../../../useCase/user/deleteUser/DeleteUserUseCase');
+const ListUsersUseCase = require('../../../useCase/user/listUsers/ListUsersUseCase');
 const UserRepository = require('../../prisma/PrismaUserRepository');
 const UserController = require('../controllers/UserController');
 
@@ -11,7 +12,13 @@ const userRepository = new UserRepository();
 const createUserUseCase = new CreateUserUseCase(userRepository);
 const authenticateUserUseCase = new AuthenticateUserUseCase(userRepository);
 const deleteUserUseCase = new DeleteUserUseCase(userRepository);
-const userController = new UserController({ createUserUseCase, authenticateUserUseCase });
+const listUsersUseCase = new ListUsersUseCase(userRepository);
+const userController = new UserController({ 
+  createUserUseCase, 
+  authenticateUserUseCase, 
+  deleteUserUseCase, 
+  listUsersUseCase 
+});
 
 router.get('/', authMiddleware, userController.list.bind(userController));
 router.post('/', userController.create.bind(userController));
